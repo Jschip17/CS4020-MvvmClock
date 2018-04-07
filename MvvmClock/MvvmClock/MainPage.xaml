@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:MvvmClock"
+             x:Class="MvvmClock.MainPage">
+
+    <StackLayout VerticalOptions="Center">
+        <StackLayout.BindingContext>
+            <Binding Path="DateTime">
+                <Binding.Source>
+                    <local:DateTimeViewModel />
+                </Binding.Source>
+            </Binding>
+        </StackLayout.BindingContext>
+        <Label Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='This program started at {0:F}'}" 
+               HorizontalTextAlignment="Center"/>
+        <Label Text="But now..."  
+               HorizontalTextAlignment="Center"/>
+        <Label Text="{Binding Hour, StringFormat='The hour is {0}'}"  
+               HorizontalTextAlignment="Center"/>
+        <Label Text="{Binding Minute, StringFormat='The minute is {0}'}"  
+               HorizontalTextAlignment="Center"/>
+        <Label Text="{Binding Second, StringFormat='The seconds are {0}'}"  
+               HorizontalTextAlignment="Center"/>
+        <Label Text="{Binding Millisecond, StringFormat='The milliseconds are {0}'}"  
+               HorizontalTextAlignment="Center"/>
+    </StackLayout>
+
+</ContentPage>
